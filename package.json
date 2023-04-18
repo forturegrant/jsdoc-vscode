@@ -1,37 +1,44 @@
 {
+	"publisher": "grantzzp",
   "name": "jsdoc",
   "displayName": "jsdoc",
   "description": "a extension can generate js doc comment",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "repository": {
+		"url": "https://github.com/lllllllqw/vscode-jsdoc.git",
+		"type": "git"
+	},
   "engines": {
-    "vscode": "^1.77.0"
+    "vscode": "^1.55.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:extension.genJSDoc"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "jsdoc.helloWorld",
-        "title": "Hello World"
+        "command": "extension.genJSDoc",
+        "title": "gen jsdoc"
       }
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run package",
+    "vscode:prepublish": "pnpm run package",
     "compile": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.77.0",
+    "@types/vscode": "^1.55.0",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
@@ -45,5 +52,6 @@
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1",
     "@vscode/test-electron": "^2.3.0"
-  }
+  },
+  "dependencies": {}
 }
